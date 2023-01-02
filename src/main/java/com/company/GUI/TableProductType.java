@@ -1,4 +1,39 @@
 package com.company.GUI;
 
-public class TableProductType {
+import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TableProductType extends AbstractTableModel {
+//    private int columnNumber = 1;
+    List<String> arrayList;
+
+    public TableProductType() {
+        arrayList = new ArrayList<String>();
+    }
+
+    @Override
+    public int getRowCount() {
+        return arrayList.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return 1;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        return arrayList.get(rowIndex);
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return "Type";
+    }
+    public boolean addRow(String[] row) {   ///////??????зачем массив
+        return arrayList.add(row[0]);
+    }
+
+
 }

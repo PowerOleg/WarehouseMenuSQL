@@ -1,9 +1,3 @@
-//window.add(buttonsPane1, new GridBagConstraints(0,0,
-//        1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.BOTH,
-//        new Insets(1,1,1,1),0,0));
-
-
-
 package com.company.GUI;
 
 
@@ -20,7 +14,7 @@ public class MainView {
     JTextField textField1;
     JLabel lable1;
     JButton createTable, deleteTable, refreshTable, addProductName, deleteProductName, addProductType, deleteProductType,
-            addBrand, deleteBrand, setPrice, setQuantity;                                        //+ цвет, страна
+            addBrand, deleteBrand, setPrice, setQuantity;
 
     public MainView() {
         window = new JPanel();
@@ -62,12 +56,12 @@ public class MainView {
 
 
 
-//Table
+//Table1
         TableModel tableModel = new TableModel();
-        JTable table = new JTable(tableModel);
-        JScrollPane jScrollPane = new JScrollPane(table);
-        jScrollPane.setPreferredSize(new Dimension(640, 480));
-//тут раньше был код чтобы добавить значения в таблицу
+        JTable table1 = new JTable(tableModel);
+        JScrollPane jScrollPane1 = new JScrollPane(table1);
+        jScrollPane1.setPreferredSize(new Dimension(640, 320));
+//тут код чтобы добавить значения в таблицу
 //        String[] str1 = new String[6];
 //        str1[0] = "Джинсы";
 //        str1[1] = "Штаны";
@@ -86,7 +80,33 @@ public class MainView {
 
 
 
-        buttonsPane3.add(jScrollPane);
+//Table2
+        TableProductType tableProductType = new TableProductType();
+        JTable table2 = new JTable(tableProductType);
+        JScrollPane jScrollPane2 = new JScrollPane(table2);
+        jScrollPane2.setPreferredSize(new Dimension(128, 320));
+
+
+//Table3
+        TableProductBrand tableProductBrand = new TableProductBrand();
+        JTable table3 = new JTable(tableProductBrand);
+        JScrollPane jScrollPane3 = new JScrollPane(table3);
+        jScrollPane3.setPreferredSize(new Dimension(128, 320));
+
+        buttonsPane3.add(jScrollPane1, new GridBagConstraints(0,0,
+        1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,
+        new Insets(1,1,1,1),0,0));
+
+
+        buttonsPane3.add(jScrollPane2, new GridBagConstraints(1,0,
+                1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,
+                new Insets(1,1,1,1),0,0));
+
+
+        buttonsPane3.add(jScrollPane3, new GridBagConstraints(2,0,
+                1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,
+                new Insets(1,1,1,1),0,0));
+
 //
         window.add("South", buttonsPane1);
         window.add("North", buttonsPane2);
