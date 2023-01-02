@@ -1,3 +1,7 @@
+//window.add(buttonsPane1, new GridBagConstraints(0,0,
+//        1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.BOTH,
+//        new Insets(1,1,1,1),0,0));
+
 package com.company.GUI;
 
 
@@ -7,6 +11,7 @@ import java.awt.*;
 public class MainView {
     JPanel window;
     JPanel buttonsPane1;
+    JPanel buttonsPane2;
     JFrame frame;
 
     JTextField textField1;
@@ -15,9 +20,11 @@ public class MainView {
 
     public MainView() {
         window = new JPanel();
+        window.setLayout(new BorderLayout());
         buttonsPane1 = new JPanel();
-        buttonsPane1.setLayout(new GridLayout(2, 6));
-        textField1 = new JTextField(30);
+        buttonsPane2 = new JPanel();
+        buttonsPane1.setLayout(new GridLayout(3, 4));
+        textField1 = new JTextField(10);
         createTable = new JButton("Create Table");
         deleteTable = new JButton("Delete Table");
         refreshTable = new JButton("Refresh Table");
@@ -32,25 +39,23 @@ public class MainView {
 
 
 
-        buttonsPane1.add(textField1);
         buttonsPane1.add(createTable);
-        buttonsPane1.add(deleteTable);
-        buttonsPane1.add(refreshTable);
         buttonsPane1.add(addProductName);
-        buttonsPane1.add(deleteProductName);
         buttonsPane1.add(addBrand);
-        buttonsPane1.add(deleteBrand);
         buttonsPane1.add(addProductType);
+        buttonsPane1.add(deleteTable);
+        buttonsPane1.add(deleteProductName);
+        buttonsPane1.add(deleteBrand);
         buttonsPane1.add(deleteProductType);
+        buttonsPane1.add(refreshTable);
         buttonsPane1.add(setPrice);
+        buttonsPane2.add(textField1);
 
 
 
-//кнопки не снизу и разбросаны не так и не влазят
-        window.add(buttonsPane1, new GridBagConstraints(0,0,
-                1,1,0,0,GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
-                new Insets(1,1,1,1),0,0));
-
+//
+        window.add("South", buttonsPane1);
+        window.add("East", buttonsPane2);
         frame = new JFrame();
         frame.setContentPane(window);
         frame.setSize(960,720);
