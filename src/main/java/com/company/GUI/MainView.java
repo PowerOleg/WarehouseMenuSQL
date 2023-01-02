@@ -3,7 +3,7 @@
 //        new Insets(1,1,1,1),0,0));
 
 
-//странно что таблица всегда отображает значения, я думал нужно будет обновлять
+
 package com.company.GUI;
 
 
@@ -68,11 +68,25 @@ public class MainView {
         JScrollPane jScrollPane = new JScrollPane(table);
         jScrollPane.setPreferredSize(new Dimension(640, 480));
 //тут раньше был код чтобы добавить значения в таблицу
+//        String[] str1 = new String[6];
+//        str1[0] = "Джинсы";
+//        str1[1] = "Штаны";
+//        str1[2] = "Wrangler";
+//        str1[3] = "5";
+//        str1[4] = "3000";
+//        tableModel.addRow(str1);
+
+//
+//        String[] str2 = new String[6];
+//        str2[2] = "Levis";
+//        tableModel.addRow(str2);
+
+
+
+
+
 
         buttonsPane3.add(jScrollPane);
-
-
-
 //
         window.add("South", buttonsPane1);
         window.add("North", buttonsPane2);
