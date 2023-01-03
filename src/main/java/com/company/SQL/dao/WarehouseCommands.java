@@ -1,9 +1,9 @@
 package com.company.SQL.dao;
 
-import com.company.SQL.pojo.Warehouse;
+import com.company.SQL.pojo.Product;
 
 public interface WarehouseCommands {
-    void insert(Warehouse warehouse);
-    /*List<Employee>*/Warehouse select (Warehouse warehouse);
-    void remove(Warehouse warehouse);
+    void insert(Product product);
+    /*List<Employee>*/Product select (Product product);
+    void remove(Product product);
 }
