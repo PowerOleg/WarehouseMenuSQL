@@ -60,7 +60,7 @@ public class MainView {
         TableModel tableModel = new TableModel();
         JTable table1 = new JTable(tableModel);
         JScrollPane jScrollPane1 = new JScrollPane(table1);
-        jScrollPane1.setPreferredSize(new Dimension(640, 320));
+        jScrollPane1.setPreferredSize(new Dimension(600, 320));
 //тут код чтобы добавить значения в таблицу
 //        String[] str1 = new String[6];
 //        str1[0] = "Джинсы";
@@ -84,14 +84,14 @@ public class MainView {
         TableProductType tableProductType = new TableProductType();
         JTable table2 = new JTable(tableProductType);
         JScrollPane jScrollPane2 = new JScrollPane(table2);
-        jScrollPane2.setPreferredSize(new Dimension(128, 320));
+        jScrollPane2.setPreferredSize(new Dimension(180, 320));
 
 
 //Table3
         TableProductBrand tableProductBrand = new TableProductBrand();
         JTable table3 = new JTable(tableProductBrand);
         JScrollPane jScrollPane3 = new JScrollPane(table3);
-        jScrollPane3.setPreferredSize(new Dimension(128, 320));
+        jScrollPane3.setPreferredSize(new Dimension(180, 320));
 
         buttonsPane3.add(jScrollPane1, new GridBagConstraints(0,0,
         1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,
@@ -113,7 +113,7 @@ public class MainView {
         window.add("Center", buttonsPane3);
         frame = new JFrame();
         frame.setContentPane(window);
-        frame.setSize(960,720);
+        frame.setSize(1024, 720);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }

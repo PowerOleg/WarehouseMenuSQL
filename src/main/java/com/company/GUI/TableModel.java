@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TableModel extends AbstractTableModel {
 
-    private int columnNumber = 6;
+    private int columnNumber = 7;
     List<String[]> arrayList;
 
     public TableModel() {
@@ -32,12 +32,13 @@ public class TableModel extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
     switch (column) {
-        case 0: return "Name";
-        case 1: return "Type";
-        case 2: return "Brand";
-        case 3: return "Quantity";
-        case 4: return "Price(1)";
-        case 5: return "Price";
+        case 0: return "id";
+        case 1: return "Name";
+        case 2: return "Type";
+        case 3: return "Brand";
+        case 4: return "Quantity";
+        case 5: return "Price(1)";
+        case 6: return "Price";
     }
     return null;
     }

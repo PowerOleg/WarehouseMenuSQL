@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TableProductType extends AbstractTableModel {
-//    private int columnNumber = 1;
-    List<String> arrayList;
+    private int columnNumber = 2;
+    List<String[]> arrayList;
 
     public TableProductType() {
-        arrayList = new ArrayList<String>();
+        arrayList = new ArrayList<String[]>();
     }
 
     @Override
@@ -19,20 +19,25 @@ public class TableProductType extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 1;
+        return columnNumber;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return arrayList.get(rowIndex);
+        String[] s = arrayList.get(rowIndex);
+        return s[columnIndex];
     }
 
     @Override
     public String getColumnName(int column) {
-        return "Type";
+        switch (column) {
+            case 0: return "id";
+            case 1: return "Type";
+        }
+        return null;
     }
-    public boolean addRow(String[] row) {   ///////??????зачем массив
-        return arrayList.add(row[0]);
+    public boolean addRow(String[] row) {
+        return arrayList.add(row);
     }
 
 
