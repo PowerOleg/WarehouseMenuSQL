@@ -45,7 +45,7 @@ public class Query implements WarehouseCommands, TypeTableCommands, BrandTableCo
             preparedStatement = dbConnection.prepareStatement(sqlQuery);
 //            preparedStatement.setInt(1, id);
 
-            ResultSet resultSet = preparedStatement.executeQuery(sqlQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Product product = new Product();
                 product.setId(resultSet.getString("id"));
@@ -81,6 +81,7 @@ public class Query implements WarehouseCommands, TypeTableCommands, BrandTableCo
         return products;
     }
 
+
     @Override
     public Product select(int id) {
         return null;
@@ -101,6 +102,48 @@ public class Query implements WarehouseCommands, TypeTableCommands, BrandTableCo
 
 
 
+
+    @Override
+    public List<Type> selectAllTypes() {
+        Connection dbConnection = null;
+        PreparedStatement preparedStatement = null;
+        List<Type> types = new ArrayList<>();
+
+        try {
+            String sqlQuery = "SELECT * FROM type";
+            dbConnection = getConnection();
+            preparedStatement = dbConnection.prepareStatement(sqlQuery);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Type type = new Type();
+                type.setId(resultSet.getString("id"));
+                type.setType(resultSet.getString("Type"));
+                types.add(type);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return types;
+    }
+
     @Override
     public void insertType(Type type) {
 
@@ -116,6 +159,46 @@ public class Query implements WarehouseCommands, TypeTableCommands, BrandTableCo
 
 
 
+
+    @Override
+    public List<Brand> selectAllBrands() {
+        Connection dbConnection = null;
+        PreparedStatement preparedStatement = null;
+        List<Brand> brands = new ArrayList<>();
+
+        try {
+            String sqlQuery = "SELECT * FROM brand";
+            dbConnection = getConnection();
+            preparedStatement = dbConnection.prepareStatement(sqlQuery);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Brand brand = new Brand();
+                brand.setId(resultSet.getString("id"));
+                brand.setBrand(resultSet.getString("Brand"));
+                brands.add(brand);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return brands;
+    }
     @Override
     public void insertType(Brand brand) {
 
