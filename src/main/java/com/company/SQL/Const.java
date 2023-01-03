@@ -1,15 +1,21 @@
 package com.company.SQL;
 
 public class Const {
-    public static final String EMPLOYEE_TABLE = "employee";
-    public static final String EMPLOYEE_ID = "id";
-    public static final String EMPLOYEE_DEPARTMENT_ID = "department_id";
-    public static final String EMPLOYEE_WORK_START_DATE = "work_start_date";
-    public static final String EMPLOYEE_NAME = "name";
-    public static final String EMPLOYEE_SALARY = "salary";
+    public static final String WAREHOUSE_TABLE = "warehouse1";
+    public static final String WAREHOUSE_ID = "id";
+    public static final String WAREHOUSE_NAME = "Name";
+    public static final String WAREHOUSE_TYPE = "Type";
+    public static final String WAREHOUSE_BRAND = "Brand";
+    public static final String WAREHOUSE_QUANTITY = "Quantity";
+    public static final String WAREHOUSE_PRICE_1 = "Price(1)";
+    public static final String WAREHOUSE_PRICE = "Price";
 
-    public static final String DEPARTMENT_TABLE = "department";
-    public static final String DEPARTMENT_ID = "id";
-    public static final String DEPARTMENT_NAME = "name";
-    public static final String DEPARTMENT_LEAD_ID = "lead_id";
+    public static final String TYPE_TABLE = "type";
+    public static final String TYPE_ID = "id";
+    public static final String TYPE_TYPE = "Type";
+
+    public static final String BRAND_TABLE = "type";
+    public static final String BRAND_ID = "id";
+    public static final String BRAND_BRAND = "Brand";
+
 }
