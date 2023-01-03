@@ -12,12 +12,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String type, String brand, int quantity, int price_1) {
+    public Product(String name, String type, String brand, int quantity, int price_1, int price) {
         this.name = name;
         this.type = type;
         this.brand = brand;
         this.quantity = quantity;
         this.price_1 = price_1;
+        this.price = price;
     }
 
     public String getId() {
@@ -74,5 +75,18 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", brand='" + brand + '\'' +
+                ", quantity=" + quantity +
+                ", price_1=" + price_1 +
+                ", price=" + price +
+                '}';
     }
 }
