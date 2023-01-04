@@ -6,6 +6,7 @@ import com.company.SQL.pojo.Product;
 import javax.swing.*;
 import java.awt.*;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class MainView {
     private JPanel window;
@@ -65,19 +66,6 @@ public class MainView {
 
 
 
-//тут код чтобы добавить значения в таблицу
-//        String[] str1 = new String[6];
-//        str1[0] = "Джинсы";
-//        str1[1] = "Штаны";
-//        str1[2] = "Wrangler";
-//        str1[3] = "5";
-//        str1[4] = "3000";
-//        tableModel.addRow(str1);
-
-//
-//        String[] str2 = new String[6];
-//        str2[2] = "Levis";
-//        tableModel.addRow(str2);
 
 
 
@@ -101,12 +89,30 @@ public class MainView {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-    public void showTables() {
+
+    public void showTables(List<String[]> sqlTable) {
 //Table1
         TableModel tableModel = new TableModel();
         JTable table1 = new JTable(tableModel);
         JScrollPane jScrollPane1 = new JScrollPane(table1);
         jScrollPane1.setPreferredSize(new Dimension(600, 320));
+
+        //тут код чтобы добавить значения в таблицу
+//        String[] str1 = new String[6];
+//        str1[0] = "Джинсы";
+//        str1[1] = "Штаны";
+//        str1[2] = "Wrangler";
+//        str1[3] = "5";
+//        str1[4] = "3000";
+        tableModel.addTable(sqlTable);
+
+//
+//        String[] str2 = new String[6];
+//        str2[2] = "Levis";
+//        tableModel.addRow(str2);
+
+
+
 
 //Table2
         TableProductType tableProductType = new TableProductType();
@@ -119,6 +125,7 @@ public class MainView {
         JTable table3 = new JTable(tableProductBrand);
         JScrollPane jScrollPane3 = new JScrollPane(table3);
         jScrollPane3.setPreferredSize(new Dimension(180, 320));
+
 
 
         buttonsPane3.add(jScrollPane1, new GridBagConstraints(0,0,

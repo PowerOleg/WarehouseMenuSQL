@@ -18,6 +18,7 @@ import com.company.SQL.pojo.Brand;
 import com.company.SQL.pojo.Product;
 import com.company.SQL.pojo.Type;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,17 +26,21 @@ public class Main {
     public static void main( String[] args ) {
         MainView mainView = new MainView();
         Query query1 = new Query();
-//        List<Product> selectedProducts = query1.selectAll();
-//        String[] s = {
-//                selectedProducts.get(0).getId(),
-//                selectedProducts.get(0).getName(),
-//                selectedProducts.get(0).getType(),
-//                selectedProducts.get(0).getBrand(),
-//                String.valueOf(selectedProducts.get(0).getQuantity()),
-//                String.valueOf(selectedProducts.get(0).getPrice_1()),
-//                String.valueOf(selectedProducts.get(0).getPrice())
-//        };
-        mainView.showTables();
+        List<Product> selectedProducts = query1.selectAll();
+        List<String[]> tableFromSQL = new ArrayList<>();
+        for (int i = 0; i < selectedProducts.size(); i++) {
+            String[] sqlTableRow = {
+                    selectedProducts.get(i).getId(),
+                    selectedProducts.get(i).getName(),
+                    selectedProducts.get(i).getType(),
+                    selectedProducts.get(i).getBrand(),
+                    String.valueOf(selectedProducts.get(i).getQuantity()),
+                    String.valueOf(selectedProducts.get(i).getPrice_1()),
+                    String.valueOf(selectedProducts.get(i).getPrice())
+            };
+            tableFromSQL.add(sqlTableRow);
+        }
+        mainView.showTables(tableFromSQL);
 
 
     }
