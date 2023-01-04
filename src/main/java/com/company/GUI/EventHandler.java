@@ -63,9 +63,11 @@ public class EventHandler implements ActionListener {
                 };
                 tableBrandFromSQL.add(sqlTableBrandRow);
             }
-
             mainView.showTables(tableWarehouseFromSQL, tableTypeFromSQL, tableBrandFromSQL);
+        }
 
+        if (src == mainView.getDeleteTableButton()) {
+            mainView.deleteTable();
         }
     }
 }

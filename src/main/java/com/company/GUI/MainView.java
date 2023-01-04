@@ -26,7 +26,6 @@ public class MainView {
         window.setLayout(new BorderLayout());
         buttonsPane1 = new JPanel();
         buttonsPane2 = new JPanel();
-        buttonsPane3 = new JPanel();
         buttonsPane1.setLayout(new GridLayout(3, 4));
         textField1 = new JTextField(20);
         lable1 = new JLabel("Нажмите кнопку действия ниже, затем введите параметр");
@@ -65,7 +64,7 @@ public class MainView {
 
 //назначаем кнопкам функционал.
         refreshTable.addActionListener(eventHandler);
-
+        deleteTable.addActionListener(eventHandler);
 
 
 
@@ -85,6 +84,8 @@ public class MainView {
     }
 
     public void showTables(List<String[]> sqlTable, List<String[]> sqlTableType, List<String[]> sqlTableBrand) {
+        buttonsPane3 = new JPanel();
+
 //Table1
         TableModel tableModel = new TableModel();
         JTable table1 = new JTable(tableModel);
@@ -140,8 +141,18 @@ public class MainView {
         window.add("Center", buttonsPane3);
         frame.setVisible(true);
     }
+
+    public void deleteTable() {
+//        buttonsPane3.remove(jScrollPane1, jScrollPane2, jScrollPane3); //не могу удалить потому что этот элемент виден только внутри другого метода, нужно выносить
+        window.remove(buttonsPane3);
+        frame.setContentPane(window);
+        frame.setVisible(true);
+    }
     public JButton getRefreshTableButton() {
         return refreshTable;
     }
 
+    public JButton getDeleteTableButton() {
+        return deleteTable;
+    }
 }
