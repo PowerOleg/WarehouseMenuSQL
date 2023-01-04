@@ -1,19 +1,22 @@
 package com.company.GUI;
 
 
+import com.company.SQL.pojo.Product;
+
 import javax.swing.*;
 import java.awt.*;
+import java.nio.file.Paths;
 
 public class MainView {
-    JPanel window;
-    JPanel buttonsPane1;
-    JPanel buttonsPane2;
-    JPanel buttonsPane3;
-    JFrame frame;
+    private JPanel window;
+    private JPanel buttonsPane1;
+    private JPanel buttonsPane2;
+    private JPanel buttonsPane3;
+    private JFrame frame;
 
-    JTextField textField1;
-    JLabel lable1;
-    JButton createTable, deleteTable, refreshTable, addProductName, deleteProductName, addProductType, deleteProductType,
+    private JTextField textField1;
+    private JLabel lable1;
+    private JButton createTable, deleteTable, refreshTable, addProductName, deleteProductName, addProductType, deleteProductType,
             addBrand, deleteBrand, setPrice, setQuantity;
 
     public MainView() {
@@ -56,11 +59,12 @@ public class MainView {
 
 
 
-//Table1
-        TableModel tableModel = new TableModel();
-        JTable table1 = new JTable(tableModel);
-        JScrollPane jScrollPane1 = new JScrollPane(table1);
-        jScrollPane1.setPreferredSize(new Dimension(600, 320));
+
+
+
+
+
+
 //тут код чтобы добавить значения в таблицу
 //        String[] str1 = new String[6];
 //        str1[0] = "Джинсы";
@@ -80,18 +84,42 @@ public class MainView {
 
 
 
+
+
+
+
+
+
+
+//
+        window.add("South", buttonsPane1);
+        window.add("North", buttonsPane2);
+
+        frame = new JFrame();
+        frame.setContentPane(window);
+        frame.setSize(1024, 720);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+    public void showTables() {
+//Table1
+        TableModel tableModel = new TableModel();
+        JTable table1 = new JTable(tableModel);
+        JScrollPane jScrollPane1 = new JScrollPane(table1);
+        jScrollPane1.setPreferredSize(new Dimension(600, 320));
+
 //Table2
         TableProductType tableProductType = new TableProductType();
         JTable table2 = new JTable(tableProductType);
         JScrollPane jScrollPane2 = new JScrollPane(table2);
         jScrollPane2.setPreferredSize(new Dimension(180, 320));
 
-
 //Table3
         TableProductBrand tableProductBrand = new TableProductBrand();
         JTable table3 = new JTable(tableProductBrand);
         JScrollPane jScrollPane3 = new JScrollPane(table3);
         jScrollPane3.setPreferredSize(new Dimension(180, 320));
+
 
         buttonsPane3.add(jScrollPane1, new GridBagConstraints(0,0,
         1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,
@@ -107,16 +135,11 @@ public class MainView {
                 1,1,0,0,GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,
                 new Insets(1,1,1,1),0,0));
 
-//
-        window.add("South", buttonsPane1);
-        window.add("North", buttonsPane2);
         window.add("Center", buttonsPane3);
-        frame = new JFrame();
-        frame.setContentPane(window);
-        frame.setSize(1024, 720);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
-
+    public JButton getRefreshTable() {
+        return refreshTable;
+    }
 
 }

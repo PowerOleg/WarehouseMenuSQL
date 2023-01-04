@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TableProductBrand extends AbstractTableModel {
     private int columnNumber = 2;
-    List<String[]> arrayList;
+    private List<String[]> arrayList;
 
     public TableProductBrand() {
         arrayList = new ArrayList<String[]>();

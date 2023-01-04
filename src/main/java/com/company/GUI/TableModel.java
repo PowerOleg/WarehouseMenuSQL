@@ -7,7 +7,7 @@ import java.util.List;
 public class TableModel extends AbstractTableModel {
 
     private int columnNumber = 7;
-    List<String[]> arrayList;
+    private List<String[]> arrayList;
 
     public TableModel() {
     arrayList = new ArrayList<String[]>();
@@ -46,6 +46,4 @@ public class TableModel extends AbstractTableModel {
     return arrayList.add(row);
     }
 
-
-    //public void addFromSQL (ConnectionDb connection) {} поидее работы с SQL тут быть не должно
 }
