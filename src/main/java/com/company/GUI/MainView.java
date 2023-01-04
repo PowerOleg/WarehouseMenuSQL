@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class MainView {
+    private EventHandler eventHandler;
     private JPanel window;
     private JPanel buttonsPane1;
     private JPanel buttonsPane2;
@@ -20,7 +21,7 @@ public class MainView {
     private JButton createTable, deleteTable, refreshTable, addProductName, deleteProductName, addProductType, deleteProductType,
             addBrand, deleteBrand, setPrice, setQuantity;
 
-    public MainView(EventHandler eventHandler) {
+    public MainView() {
         window = new JPanel();
         window.setLayout(new BorderLayout());
         buttonsPane1 = new JPanel();
@@ -41,7 +42,8 @@ public class MainView {
         deleteProductType = new JButton("Delete Product Type");
         setPrice = new JButton("Set Price");
         setQuantity = new JButton("Set Quantity");
-
+        eventHandler = new EventHandler();
+        eventHandler.setMainView(this);
 
 
 
@@ -62,8 +64,6 @@ public class MainView {
 
 
 //назначаем кнопкам функционал.
-//нам нужен EventHandler, но создавать new eventHandler нельзя, потому что в нем не будет загружен объект MainView
-// значит надо передать eventHandler с загруженным MainView через конструктор
         refreshTable.addActionListener(eventHandler);
 
 

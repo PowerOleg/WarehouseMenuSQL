@@ -32,10 +32,7 @@ import java.util.List;
 
 public class Main {
     public static void main( String[] args ) {
-        EventHandler eventHandler = new EventHandler();
-        MainView mainView = new MainView(eventHandler); //создается с подключенной кнопкой
-        eventHandler.setMainView(mainView);  // нажимать кнопку можно после загрузки MainView, а загрузить можно когда хочешь. т.е. после этой строчки - можно нажимать.
-
+        MainView mainView = new MainView();
 
     }
 }
