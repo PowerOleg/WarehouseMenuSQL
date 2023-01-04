@@ -20,7 +20,7 @@ public class MainView {
     private JButton createTable, deleteTable, refreshTable, addProductName, deleteProductName, addProductType, deleteProductType,
             addBrand, deleteBrand, setPrice, setQuantity;
 
-    public MainView() {
+    public MainView(EventHandler eventHandler) {
         window = new JPanel();
         window.setLayout(new BorderLayout());
         buttonsPane1 = new JPanel();
@@ -44,6 +44,7 @@ public class MainView {
 
 
 
+
         buttonsPane1.add(createTable);
         buttonsPane1.add(addProductName);
         buttonsPane1.add(addProductType);
@@ -60,17 +61,10 @@ public class MainView {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+//назначаем кнопкам функционал.
+//нам нужен EventHandler, но создавать new eventHandler нельзя, потому что в нем не будет загружен объект MainView
+// значит надо передать eventHandler с загруженным MainView через конструктор
+        refreshTable.addActionListener(eventHandler);
 
 
 
@@ -145,7 +139,7 @@ public class MainView {
         window.add("Center", buttonsPane3);
         frame.setVisible(true);
     }
-    public JButton getRefreshTable() {
+    public JButton getRefreshTableButton() {
         return refreshTable;
     }
 

@@ -1,4 +1,4 @@
-//1. делаем кнопку RefreshTable
+//1. делаем кнопку RefreshTable для всех таблиц
 //2. надо сделать после нажатия кнопки addType/addBrand/addProduct всплывающее окно и туда вводить параметры, а не в общее поле вводить слово.
 
 
@@ -10,8 +10,16 @@
 //!улучшить переход от List<Product> selectedProducts = query1.selectAll(); к
 // загрузке в GUI таблицу которой надо String[] s , потому что tableModel.addRow(str1); где str1, это String[] str1
 
+
+//trouble1(done)
+// нельзя создавать внутри MainView EventHandler -получается они друг друга создают. и получается Deadloop
+// Если создавать нельзя, !нужно передавать =>
+//может отнаследоваться?
+//решение: чтобы работала кнопка нужно чтобы выполнились 2-а условия: в MainView к кнопке подключился eventHandler и у eventHandler
+// был объект MainView с методами MainView. это можно сделать через сеттеры. Как только сделаешь - все работает. В моем случае я для MainView сделал через конструктор.
 package com.company;
 
+import com.company.GUI.EventHandler;
 import com.company.GUI.MainView;
 import com.company.SQL.dao.Query;
 import com.company.SQL.pojo.Brand;
@@ -24,23 +32,9 @@ import java.util.List;
 
 public class Main {
     public static void main( String[] args ) {
-        MainView mainView = new MainView();
-        Query query1 = new Query();
-        List<Product> selectedProducts = query1.selectAll();
-        List<String[]> tableFromSQL = new ArrayList<>();
-        for (int i = 0; i < selectedProducts.size(); i++) {
-            String[] sqlTableRow = {
-                    selectedProducts.get(i).getId(),
-                    selectedProducts.get(i).getName(),
-                    selectedProducts.get(i).getType(),
-                    selectedProducts.get(i).getBrand(),
-                    String.valueOf(selectedProducts.get(i).getQuantity()),
-                    String.valueOf(selectedProducts.get(i).getPrice_1()),
-                    String.valueOf(selectedProducts.get(i).getPrice())
-            };
-            tableFromSQL.add(sqlTableRow);
-        }
-        mainView.showTables(tableFromSQL);
+        EventHandler eventHandler = new EventHandler();
+        MainView mainView = new MainView(eventHandler); //создается с подключенной кнопкой
+        eventHandler.setMainView(mainView);  // нажимать кнопку можно после загрузки MainView, а загрузить можно когда хочешь. т.е. после этой строчки - можно нажимать.
 
 
     }
