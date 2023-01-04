@@ -84,7 +84,7 @@ public class MainView {
         frame.setVisible(true);
     }
 
-    public void showTables(List<String[]> sqlTable) {
+    public void showTables(List<String[]> sqlTable, List<String[]> sqlTableType, List<String[]> sqlTableBrand) {
 //Table1
         TableModel tableModel = new TableModel();
         JTable table1 = new JTable(tableModel);
@@ -113,13 +113,14 @@ public class MainView {
         JTable table2 = new JTable(tableProductType);
         JScrollPane jScrollPane2 = new JScrollPane(table2);
         jScrollPane2.setPreferredSize(new Dimension(180, 320));
+        tableProductType.addTableType(sqlTableType);
 
 //Table3
         TableProductBrand tableProductBrand = new TableProductBrand();
         JTable table3 = new JTable(tableProductBrand);
         JScrollPane jScrollPane3 = new JScrollPane(table3);
         jScrollPane3.setPreferredSize(new Dimension(180, 320));
-
+        tableProductBrand.addTableBrand(sqlTableBrand);
 
 
         buttonsPane3.add(jScrollPane1, new GridBagConstraints(0,0,

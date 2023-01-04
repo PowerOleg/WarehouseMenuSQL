@@ -40,7 +40,7 @@ public class TableProductBrand extends AbstractTableModel {
     public boolean addRow(String[] row) {   ///////??????зачем массив
         return arrayList.add(row);
     }
-    public boolean addTable(List<String[]> table) {
+    public boolean addTableBrand(List<String[]> table) {
         return arrayList.addAll(table);
     }
 }
